@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Accueil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p>Hello {{firstName}}!</p>
+  <ion-button (click)="changeName()" color="tertiary" fill="outline"
+    >click me</ion-button
+  >
+  <h4>String</h4>
+  <p>minuscule: {{chaine | lowercase}}</p>
+  <p>MAJUSCULE: {{chaine | uppercase}}</p>
+  <p>title: {{chaine | titlecase}}</p>
+  <h4>Nombres: {{nombre}}</h4>
+  <!-- le 0.1-1 indique le nombre de chiffre apres la virgule-->
+  <h4>Nombres formaté: {{nombre | number : '0.1-1'}}</h4>
+  <!-- le currency pur avoir la monnaie-->
+  <h4>monnaie: {{nombre | currency : 'EUR'}}</h4>
+  <h4>Date: {{date | date: ' dd/ MM /yyyy'}}</h4>
+
+  <h4>*ngIf</h4>
+  <div *ngIf="!isAdmin; else toto">
+    <p>Contenu reservé aux admins</p>
+  </div>
+
+  <ng-template #toto>
+    <div>Non admis pas admin</div>
+  </ng-template>
+
+  <h4>Boucles</h4>
+  <ul>
+    <li *ngFor="let item of list">{{item}}</li>
+  </ul>
+</ion-content>

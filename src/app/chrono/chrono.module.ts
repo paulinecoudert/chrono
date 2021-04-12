@@ -4,17 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FolderPageRoutingModule } from './folder-routing.module';
+import { ChronoPageRoutingModule } from './chrono-routing.module';
 
-import { FolderPage } from './folder.page';
+import { ChronoPage } from './chrono.page';
+import { ToTimePipe } from './to-time.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    ChronoPageRoutingModule
   ],
-  declarations: [FolderPage]
+  declarations: [ChronoPage, ToTimePipe]
 })
-export class FolderPageModule {}
+export class ChronoPageModule {}
