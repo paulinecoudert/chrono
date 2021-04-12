@@ -13,6 +13,23 @@
     <ion-input [(ngModel)]="firstName"></ion-input>
   </ion-item>
 
+  <!--select avec tous les noms des pays-->
+  <ion-item>
+    <ion-label position="floating">Country </ion-label>
+
+    <ion-select [(ngModel)]="selectedCountry">
+      <ion-select-option [value]="null"> - </ion-select-option>
+      <ion-select-option [value]="item" *ngFor="let item of countries"
+        >{{item.name}}</ion-select-option
+      >
+    </ion-select>
+  </ion-item>
+
   <ion-button (click)="search()">Rechercher</ion-button>
-  <p></p>
+  <p *ngIf="result">
+    <ion-progress-bar
+      [color]="result.gender === 'male' ? 'primary' : 'danger'"
+      [value]="result.probability"
+    ></ion-progress-bar>
+  </p>
 </ion-content>

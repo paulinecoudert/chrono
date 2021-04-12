@@ -1,6 +1,8 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Country } from '../_models/country';
+import { GenderResult } from '../_models/gender-result';
 
 
 @Component({
@@ -12,21 +14,36 @@ export class GenderPage implements OnInit {
 
   firstName: string;
 
-  result: any;
+  result: GenderResult;
+
+  countries: Country[];
+
+  selectedCountry: Country;
 
   constructor(
-  private http: HttpClient
-  )
-  { }
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
+    // get all countries
+    this.http.get<Country[]>('https://restcountries.eu/rest/v2/all')
+      .subscribe(data => {
+        this.countries = data;
+      });
   }
 
-  search(){
-      this.http.get('https://api.genderize.io?name=' + this.firstName)
+  search() {
+
+    let url = 'https://api.genderize.io?name=' + this.firstName;
+
+    if(this.selectedCountry) {
+      url += '&country_id=' + this.selectedCountry.alpha2Code
+    }
+
+    this.http.get<GenderResult>(url)
       .subscribe(data => {
         this.result = data;
-        console.log(data);
-    });
+      });
   }
+
 }
