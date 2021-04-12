@@ -13,10 +13,14 @@
     <ion-input [(ngModel)]="newItem"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-button slot="end" (click)="add()" [disabled]="!newItem">+</ion-button>
-
     <!--appel de le methode add -->
+    <ion-button slot="end" (click)="add()" [disabled]="!newItem">+</ion-button>
+    <!--appel de le methode supprimer -->
+    <ion-button slot="end" (click)="removeAll()" color="danger"
+      ><ion-icon name="trash"></ion-icon
+    ></ion-button>
   </ion-item>
+
   <ion-list>
     <ion-item *ngFor="let item of items" (click)="openActionSheet(item)">
       <ion-icon

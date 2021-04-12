@@ -29,12 +29,21 @@ export class CartPage implements OnInit {
   }
 
 
+  removeAll(){
+   //si j'ai un element alors j'ajoute et si rien n'ajoute pas de ligne
+     //je pousse mon nouvel item dans ma liste d'items
+    //this.items= null;  je recrai une liste vide
+    this.items.splice(0);  //methode qui vide la liste 
+  }
+
+
 
     async openActionSheet(item: Article){ //methode qui prend en parametre l'element sur lequel je click l'article
       const as = await this.actionSheetCtrl.create({ //le as = await nouvelle syntaxte du .then
         header: '',
         buttons: [
-          { text: item.isChecked ? 'Décocher' : 'Cocher', handler: () => {item.isChecked= !item.isChecked;}}, //mettre l'inverse pour cocher décocher
+          { text: item.isChecked ? 'Décocher' : 'Cocher', handler: () => 
+          {item.isChecked= !item.isChecked;}}, //mettre l'inverse pour cocher décocher
           { text: 'Supprimer', handler: () =>{ //supression de l'article dans la liste
             const i = this.items.indexOf(item);
             this.items.splice(i, 1);
