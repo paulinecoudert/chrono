@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end" style="padding-right: 20px">
+      <ion-icon name="close-outline" (click)="dismiss()"></ion-icon>
+      <!--fermeture de ma modal avec la methode 
+      dismiss() implémenté dans le details.component.ts-->
+    </ion-buttons>
+    <ion-title>{{ details?.name | titlecase }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="images">
+    <img [src]="details?.sprites.back_default" />
+    <img [src]="details?.sprites.front_default" />
+  </div>
+  <div class="info">
+    <p>Hauteur: {{ details?.height / 10 }} m</p>
+    <p>Poids: {{ details?.weight / 10 }} kg</p>
+  </div>
+  <div>
+    <canvas
+      baseChart
+      chartType="radar"
+      [datasets]="data"
+      [labels]="labels"
+    ></canvas>
+  </div>
+</ion-content>

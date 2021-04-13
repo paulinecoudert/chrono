@@ -10,7 +10,8 @@ export class AppComponent {
     { title: 'Home', url: '/home', icon: 'home' },
     { title: 'Chrono', url: '/chrono', icon: 'stopwatch' },
     { title: 'Shopping cart', url: '/cart', icon: 'cart' },
-    { title: 'gender', url: '/gender', icon: 'transgender' },
+    { title: 'Gender', url: '/gender', icon: 'star' },
+    { title: 'Pokemon', url: '/pokemon', icon: 'rocket' },
 
   ];
 

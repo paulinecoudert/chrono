@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title slot="start">Pokemon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <!--appel de la methode previous -->
+    <ion-button slot="start" (click)="previous()" [disabled]="!result?.previous"
+      >previous</ion-button
+    >
+    <!--appel de la methode next -->
+    <ion-button slot="end" (click)="next()" [disabled]="!result?.next"
+      >next</ion-button
+    >
+  </ion-item>
+
+  <!--affichage simple de la liste des pokemons -->
+  <ul>
+    <li *ngFor="let item of result?.results" (click)="affDetail(item.url)">
+      <!-->quand je clic sur un pokemon je lui fournis son url dans la propriété-->
+      {{item.name | uppercase}}
+    </li>
+  </ul>
+</ion-content>

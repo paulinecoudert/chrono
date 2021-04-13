@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'gender',
     loadChildren: () => import('./gender/gender.module').then( m => m.GenderPageModule)
+  },
+  {
+    path: 'pokemon',
+    loadChildren: () => import('./pokemon/pokemon.module').then( m => m.PokemonPageModule)
   }
 ];
 
